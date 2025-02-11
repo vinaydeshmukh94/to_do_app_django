@@ -64,9 +64,9 @@
     text-align: center;
     margin-top: 20px;
   }
-  .scr{
-    overflow-y:scroll;
-  }
+  /* .scr{ */
+    /* overflow-y:scroll; */
+  /* } */
   .scr::-webkit-scrollbar {
     width: 0;
   }
@@ -100,22 +100,23 @@ a{
 }
 
 .todo-green {
-  background-color: green;
-  /* Add other styles as needed */
+  background-color: rgba(2, 100, 48, 0.533);
+  display: block;
 }
 
 .todo-red {
-  background-color: red;
+  background-color: rgba(239, 33, 53, 0.499);
+  display: block;
   /* Add other styles as needed */
 }
 
 .anca{
   font-size: 25px;
-    margin-top: 7px;
-    /* margin-left: -68px; */
-    margin-right: -41px;
+  margin-top: 7px;
+  /* margin-left: -68px; */
+  margin-right: -41px;
 }
 .heads{
   display: flex;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }

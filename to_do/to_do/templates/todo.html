@@ -42,31 +42,27 @@
                 </form>
 
                 {% for todo in res %}
-                <div class="Todo clickable-div {% if todo.status %}todo-green{% else %}todo-red{% endif %}">
+                <div class="Todo {% if todo.status == 'C' %}todo-green{% else %}todo-red{% endif %}" style="display: block;">
                     <form method="post" action="">
                         {% csrf_token %}
 
-                        <!-- <h5><input name="status"required type="submit" {% if todo.status %} checked {% endif %}></h5> -->
+                        <!-- <h5><input name="status" required type="submit" {% if todo.status %} checked {% endif %}></h5> -->
                     </form>
-
-                    <p class="{% if todo.status %} completed {% endif %} ">{{todo.title}}</p>
-
-
-
-
+                    <p class="{% if  todo.status == 'C' %} completed {% endif %} ">{{todo.title}}</p>
                     <div>
                         <a href=" /edit_todo/{{todo.srno}} "><i class="fa-solid fa-pen-to-square"></i></a>
                         <a href=" /delete_todo/{{todo.srno}} "><i class="fa-solid fa-trash"></i></a>
-
                         </i>
                     </div>
+                    <br>
+                    <hr>
+                    <div style="text-align: left; font-size: 15px;">
+                        <p>Status : {% if todo.status == 'C' %}Completed{% else %}Pending{% endif %}</p>
+                        <p>TimeStamp: {{todo.date}}</p>
+                    </div>
                 </div>
-
-
                 {% endfor %}
             </div>
-
-
         </div>
     </div>
     <script src="{% static 'js/todo.js' %}"></script>

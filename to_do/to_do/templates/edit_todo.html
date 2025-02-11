@@ -24,7 +24,12 @@
                 {% csrf_token %}
                 <input type="text" name="title" required class="todo-input inp" placeholder={{obj.title}} value="{{obj.title}}">
                 <input type="hidden" name="srno" value={{obj.srno}}>
-                
+                <div>
+                <select name="status" required class="todo-input inp">
+                    <option value="P" {% if obj.status == 'P' %}selected{% endif %} style="color: black;">Pending</option>
+                    <option value="C" {% if obj.status == 'C' %}selected{% endif %} style="color: black;">Completed</option>
+                </select>
+                </div>
                 <input class="submit-button" type="submit" value="Update Task">
 
             </form>
@@ -33,9 +38,6 @@
             <div class="Todo clickable-div {% if todo.status %}todo-green{% else %}todo-red{% endif %}" >
                 <h5>{{todo.srno}}</h5>
                 <p>{{todo.title}}</p>
-
-
-
                 <div>
                     <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
                     <a href=" /delete_todo/{{todo.srno}} "><i class="fa-solid fa-trash"></i></a>

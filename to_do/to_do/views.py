@@ -60,10 +60,12 @@ def todo(request):
 def edit_todo(request, srno):
     if request.method == "POST":
         title = request.POST.get('title')
-        print(title)
+        status = request.POST.get('status')
+        print(title, status)
 
         obj=models.TODOO.objects.get(srno=srno)
         obj.title = title
+        obj.status = status
         obj.save()
 
         return redirect('/todopage', {'obj':obj})
